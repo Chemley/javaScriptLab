@@ -13,7 +13,7 @@ game ();
 function getDamage() {
   return (Math.floor(Math.random() * 5) + 1);
   }
-
+// starts the game
 function startCombat(name) {
 var grantLives = 10;
 var playerLives = 40;
@@ -39,6 +39,7 @@ while (grantLives > 0 && playerLives > 0) {
         grantLives = null;
         break;
       }
+// quits the game if the user types in quit. The break is a backup so the loop will stop running. 
   } else {
     console.log("Goodbye!");
     break;
