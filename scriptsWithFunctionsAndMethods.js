@@ -19,7 +19,7 @@ var user = {
   heal: 0,
   gamesWon: 0,
   playerAttackDamage: function(){
-    return (Math.floor(Math.random() * 3) + 1);
+    return (Math.floor(Math.random() * 5) + 1);
   },
   healing: function (){
     this.health += (Math.floor(Math.random() * 10) + 1);
@@ -60,7 +60,8 @@ while (comp.lives > 0 && user.health > 0) {
       }
   } else if (playGame.toLowerCase() === "heal") {
     if (user.heal <=1) {
-      user.heal +=1
+      user.heal +=1;
+      user.healing();
       console.log("Your new health is " + user.health + ".");
     } else {
       console.log("Use what you've got! There ain't none here.");
