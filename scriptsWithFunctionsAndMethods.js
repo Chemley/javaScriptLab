@@ -15,7 +15,7 @@ game ();
 function startCombat(playerName) {
 var user = {
   health: 40,
-  heal: 0,
+  heal: 2,
   playerAttackDamage: function(){
     return (Math.floor(Math.random() * 5) + 1);
   },
@@ -56,12 +56,12 @@ while (comp.lives > 0 && user.health > 0) {
         comp.lives = null;
         break;
       }
-  } else if (playGame.toLowerCase() === "heal"){
-    if (user.heal <= 1) {
-      user.heal = user.heal + 1;
+  } else if (playGame.toLowerCase() === "heal") {
+    if (user.heal > 0) {
+      user.heal = user.heal - 1;
       user.health += user.healing();
-      console.log("You can heal " + user.heal + " more time.");
-    } else if (user.healCount === 2) {
+      console.log("You can heal " + user.heal + " more time. Your new health is " + user.health + ".");
+    } else {
       console.log("Use what you've got! There ain't none here.");
     }
 // quits the game if the user types in quit. The break is a backup so the loop will stop running.
