@@ -15,13 +15,14 @@ game ();
 function startCombat(playerName) {
 var user = {
   health: 40,
-  heal: 2,
+  name: playerName,
+  heal: 0,
   gamesWon: 0,
   playerAttackDamage: function(){
     return (Math.floor(Math.random() * 3) + 1);
   },
   healing: function (){
-    return (Math.floor(Math.random() * 10) + 1);
+    this.health += (Math.floor(Math.random() * 10) + 1);
   }
 };
 
@@ -40,7 +41,7 @@ while (comp.lives > 0 && user.health > 0) {
       if (comp.lives >= 0){
         comp.lives -= comp.grantAttackDamage();
         user.health -= user.playerAttackDamage();
-        console.log(playerName + " score is " + user.health);
+        console.log(user.name + " score is " + user.health);
         console.log(comp.name + " score is " + comp.lives);
       }
       if (comp.lives <= 0) {
@@ -58,10 +59,9 @@ while (comp.lives > 0 && user.health > 0) {
         console.log(comp.name + " is our winner. Better luck next time!")
       }
   } else if (playGame.toLowerCase() === "heal") {
-    if (user.heal > 0) {
-      user.heal -=1;
-      user.health +=user.healing();
-      console.log("You can heal " + user.heal + " more time. Your new health is " + user.health + ".");
+    if (user.heal <=1) {
+      user.heal +=1
+      console.log("Your new health is " + user.health + ".");
     } else {
       console.log("Use what you've got! There ain't none here.");
     }
