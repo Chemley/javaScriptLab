@@ -7,10 +7,20 @@ button {
   color: white;
   border: 2px solid black;
   padding: 15px;
+  display: inline-block;
+  text-align: center;
 }
 
-div {
+progress {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
 
+span {
+  display: block;
+  margin:0;
+  padding:0;
 }
 
 div.playerStats {
