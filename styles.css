@@ -12,9 +12,7 @@ button {
 }
 
 progress {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
+  display: inline-block;
 }
 
 span {

@@ -46,22 +46,16 @@ startAttack.onclick = function() {
       comp.health = 10;
       player.wins++;
       document.getElementById("wins").value = player.wins;
-      endGame();
     }
+    if (player.wins === 5) {
+      function wins() {
+        alert("You win!");
+      }
+    } else if (player.health <=0 || (comp.health >=0 && player.wins !==5)) {
+        function losses(){
+        alert("Game over! You lost!");
   }
-
-
-//End game function
-function endGame () {
-if (player.wins === 5) {
-  function wins() {
-    alert("You win!");
-  }
-} else if (player.health <=0 && player.wins !==5) {
-    function losses(){
-    alert("Game over! You lost!");
-    }
-  }
+ }
 }
 
 
