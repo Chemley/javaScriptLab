@@ -16,13 +16,24 @@ progress {
 }
 
 span {
-  display: block;
+  display: inline-block;
   margin:0;
   padding:0;
 }
 
-div.playerStats {
+p {
+  flex-wrap: wrap;
+  display: inline;
+}
+
+.scores {
+  text-align: center;
+}
+
+.stats {
   border: 2px solid black;
+  direction: flex;
+  flex-direction: column;
 }
 
 #firstPage {

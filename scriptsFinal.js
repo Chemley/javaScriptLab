@@ -44,7 +44,7 @@ startAttack.onclick = function() {
       console.log(player.wins);
     }
 
-    if (player.wins === 5 && player.health >= 0) {
+    if (player.wins === 5) {
         alert("You win!");
         document.getElementById("start").style.display = "block";
         document.getElementById("secondPage").style.display = "none";
@@ -58,6 +58,7 @@ startAttack.onclick = function() {
     document.getElementById("healthBar").value = player.health;
     document.getElementById("grantHealthBar").value = comp.health;
     document.getElementById("name").innerHTML = player.name;
+    document.getElementById("playerSpan").innerHTML = player.name;
     document.getElementById("playerScore").innerHTML = player.health;
     document.getElementById("grantSpan").innerHTML = comp.health;
   }
@@ -69,9 +70,10 @@ startAttack.onclick = function() {
 // healing
 var healing = document.getElementById("heal");
 healing.onclick = function(){
-  if (player.healCount <=1) {
+  if (player.healCount <=2) {
     player.healing();
-    document.getElementById("healCount").value = (player.healCount++);
+    player.healCount++
+    document.getElementById("healCount").value = player.healCount;
     document.getElementById("playerScore").innerHTML = player.health;
   }
 }

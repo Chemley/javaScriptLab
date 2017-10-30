@@ -16,22 +16,28 @@
         <button id="attack" type="button">Attack</button>
         <button id="heal" type="button">Heal</button>
         <button id="quit" type="button">Quit</button>
+        <div class="scores">
         <span id="name" class="playerName"></span><p> status: </p><span id="playerScore" class="playerName"></span>
         <p>Grant's status: </p><span id="grantSpan"></span></p>
-          <div class="playerStats">
+        </div>
+        <div class="stats">
+            <div class="playerStats">
               <h3>Player Stats</h3>
               <p>Name</p>
-              <span id="playerSpan" class="playerName"></span><span class="playerName"></span>
               <p>Health</p>
-              <progress id="healthBar" value="40" max="40"></progress>
               <p>Heal Count</p>
-              <progress id="healCount" value="0" max="1"></progress>
               <p>Wins</p>
+              <span id="playerSpan" class="playerName"></span>
+              <progress id="healthBar" value="40" max="40"></progress>
+              <progress id="healCount" value="0" max="2"></progress>
               <progress id="wins" value="0" max="5"></progress>
+            </div>
+            <div class="enemyStats">
               <h3>Enemy Stats</h3>
                 <p>Name</p>
                 <p>All Mighty Grant</p>
                 <p>Grant Lives</p><progress id="grantHealthBar" value="5" max="5"></progress>
+              </div>
           </div>
       </div>
       <script src="scriptsFinal.js"></script>
