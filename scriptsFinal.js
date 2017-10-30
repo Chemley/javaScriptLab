@@ -33,30 +33,37 @@ function startGame() {
   document.getElementsByClassName("playerName").innerHTML = player.name;
   document.getElementById("playerScore").innerHTML = player.health;
   document.getElementById("grantSpan").innerHTML = comp.health;
-}
-
 var startAttack = document.getElementById("attack");
 startAttack.onclick = function() {
-  document.getElementById("healthBar").value = (player.health -= comp.grantAttackDamage());
-  document.getElementById("grantHealthBar").value = (comp.health -= player.playerAttackDamage());
-  document.getElementById("name").innerHTML = player.name;
-  document.getElementById("playerScore").innerHTML = player.health;
-  document.getElementById("grantSpan").innerHTML = comp.health;
-  if (comp.health <= 0 && player.health >= 0){
+  player.health -= comp.grantAttackDamage();
+  comp.health -= player.playerAttackDamage();
+  if (comp.health <= 0 && player.health >= 0) {
       comp.health = 10;
       player.wins++;
       document.getElementById("wins").value = player.wins;
+      console.log(player.wins);
     }
-    if (player.wins === 5) {
-      function wins() {
+
+    if (player.wins === 5 && player.health >= 0) {
         alert("You win!");
+        document.getElementById("start").style.display = "block";
+        document.getElementById("secondPage").style.display = "none";
       }
-    } else if (player.health <=0 || (comp.health >=0 && player.wins !==5)) {
-        function losses(){
+
+    if (player.health <=0 && player.wins !==5) {
         alert("Game over! You lost!");
+        document.getElementById("start").style.display = "block";
+        document.getElementById("secondPage").style.display = "none";
+    }
+    document.getElementById("healthBar").value = player.health;
+    document.getElementById("grantHealthBar").value = comp.health;
+    document.getElementById("name").innerHTML = player.name;
+    document.getElementById("playerScore").innerHTML = player.health;
+    document.getElementById("grantSpan").innerHTML = comp.health;
   }
- }
 }
+
+
 
 
 // healing
@@ -64,7 +71,8 @@ var healing = document.getElementById("heal");
 healing.onclick = function(){
   if (player.healCount <=1) {
     player.healing();
-    document.getElementById("healCount").value = (player.healCount +=1);
+    document.getElementById("healCount").value = (player.healCount++);
+    document.getElementById("playerScore").innerHTML = player.health;
   }
 }
 
@@ -74,4 +82,6 @@ quit.onclick = function() {
   alert("Game Over!")
   document.getElementById("start").style.display = "block";
   document.getElementById("secondPage").style.display = "none";
+  player.health = 40;
+  comp.health = 10;
 }
